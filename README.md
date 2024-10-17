@@ -1,7 +1,6 @@
-```markdown
-# 🗓️ Meeting Scheduler Bot
+## 🗓️ Meeting Scheduler Bot
 
-A conversational AI-powered meeting scheduler that allows users to schedule meetings based on natural language input. The bot can understand various date and time expressions, extract participants, and provide time zone information based on user location.
+A conversational AI-powered meeting scheduler that allows users to schedule meetings based on natural language input. 
 
 ## ✨ Features
 
