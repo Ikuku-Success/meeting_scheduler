@@ -1,6 +1,6 @@
 ## 🗓️ Meeting Scheduler Bot
 
-A conversational AI-powered meeting scheduler that allows users to schedule meetings based on natural language input. 
+An AI-powered meeting scheduler that allows users to schedule meetings based on natural language input. 
 
 ## ✨ Features
 
