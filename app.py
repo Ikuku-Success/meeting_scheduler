@@ -122,23 +122,32 @@ def parse_schedule_request(request):
 # Streamlit user interface
 st.title("Meeting Scheduler Bot")
 
-st.text("Note: There are only 3 candiates calendars available [Alice, Bob, Jane]\nyou are one of them and can schedule a meeting with either of the two or both:")
-user_request = st.text_area("Describe your meeting request")
+st.text("Note: There are only 3 candidates' calendars available [Alice, Bob, Jane]. You are one of them and can schedule a meeting with either of the two or both:")
+user_request = st.text_area("Describe your meeting request", height=150)
 
+# Initialize session state for location fields
+if 'country' not in st.session_state:
+    st.session_state.country = ""
+if 'state' not in st.session_state:
+    st.session_state.state = ""
+if 'city' not in st.session_state:
+    st.session_state.city = ""
 
-if st.button("Schedule Meeting"):
-    country = st.text_input("Country", "")  # No default value
-    state = st.text_input("State", "")      # No default value
-    city = st.text_input("City", "")        # No default value
+# Show location input fields only after a request is made
+if user_request:
+    st.session_state.country = st.text_input("Country", st.session_state.country)
+    st.session_state.state = st.text_input("State", st.session_state.state)
+    st.session_state.city = st.text_input("City", st.session_state.city)
 
-    participants, requested_date, start_time, end_time = parse_schedule_request(user_request)
+    if st.button("Schedule Meeting"):
+        participants, requested_date, start_time, end_time = parse_schedule_request(user_request)
 
-    if participants and requested_date and start_time and end_time:
-        # Only fetch timezone if country, state, and city are provided
-        if country and state and city:
-            timezone = get_timezone(country, state, city)
-            st.write(f"Meeting scheduled with {participants} on {requested_date} from {start_time} to {end_time} in {timezone} timezone.")
+        if participants and requested_date and start_time and end_time:
+            # Only fetch timezone if country, state, and city are provided
+            if st.session_state.country and st.session_state.state and st.session_state.city:
+                timezone = get_timezone(st.session_state.country, st.session_state.state, st.session_state.city)
+                st.write(f"Meeting scheduled with {participants} on {requested_date} from {start_time} to {end_time} in {timezone} timezone.")
+            else:
+                st.error("Please provide your location (country, state, and city).")
         else:
-            st.error("Please provide your location (country, state, and city).")
-    else:
-        st.error("Could not schedule the meeting. Please provide more details.")
+            st.error("Could not schedule the meeting. Please provide more details.")
