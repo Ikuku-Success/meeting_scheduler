@@ -1,0 +1,101 @@
+{
+    "users": [
+      {
+        "user_id": "user1",
+        "name": "Alice",
+        "calendar": [
+          {
+            "date": "2024-10-14",
+            "appointments": [
+              {
+                "start_time": "09:00",
+                "end_time": "10:00",
+                "description": "Team Meeting"
+              },
+              {
+                "start_time": "13:00",
+                "end_time": "14:30",
+                "description": "Project Review"
+              }
+            ]
+          },
+          {
+            "date": "2024-10-15",
+            "appointments": [
+              {
+                "start_time": "11:00",
+                "end_time": "12:00",
+                "description": "Client Call"
+              },
+              {
+                "start_time": "15:00",
+                "end_time": "16:00",
+                "description": "Code Review"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "user_id": "user2",
+        "name": "Bob",
+        "calendar": [
+          {
+            "date": "2024-10-14",
+            "appointments": [
+              {
+                "start_time": "10:30",
+                "end_time": "11:30",
+                "description": "Stand-up Meeting"
+              }
+            ]
+          },
+          {
+            "date": "2024-10-15",
+            "appointments": [
+              {
+                "start_time": "14:00",
+                "end_time": "15:00",
+                "description": "Performance Review"
+              }
+            ]
+          },
+          {
+            "date": "2024-10-16",
+            "appointments": []
+          }
+        ]
+      },
+      {
+        "user_id": "user3",
+        "name": "Jane",
+        "calendar": [
+          {
+            "date": "2024-10-14",
+            "appointments": []
+          },
+          {
+            "date": "2024-10-15",
+            "appointments": [
+              {
+                "start_time": "09:00",
+                "end_time": "09:30",
+                "description": "1:1 Meeting"
+              },
+              {
+                "start_time": "12:00",
+                "end_time": "13:00",
+                "description": "Lunch with Partner"
+              },
+              {
+                "start_time": "16:00",
+                "end_time": "17:00",
+                "description": "Project Planning"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  
