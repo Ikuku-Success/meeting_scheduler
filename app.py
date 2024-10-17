@@ -122,8 +122,9 @@ def parse_schedule_request(request):
 # Streamlit user interface
 st.title("Meeting Scheduler Bot")
 
-st.text("Enter the meeting request below:")
+st.text("Note: There are only 3 candiates calendars available [Alice, Bob, Jane]\nyou are one of them and can schedule a meeting with either of the two or both:")
 user_request = st.text_area("Describe your meeting request")
+
 
 if st.button("Schedule Meeting"):
     country = st.text_input("Country", "")  # No default value
