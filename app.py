@@ -7,6 +7,7 @@ from transformers import pipeline
 from geopy.geocoders import Nominatim
 from timezonefinder import TimezoneFinder
 import pytz
+
 # Initialize NER model
 @st.cache_resource
 def load_ner_model():
@@ -121,18 +122,22 @@ def parse_schedule_request(request):
 # Streamlit user interface
 st.title("Meeting Scheduler Bot")
 
-st.text("Note: There are only 3 candiates calendars available [Alice, Bob, Jane]\nyou are one of them and can schedule a meeting with either of the two or both:")
+st.text("Enter the meeting request below:")
 user_request = st.text_area("Describe your meeting request")
 
 if st.button("Schedule Meeting"):
-    country = st.text_input("Country", "United States")
-    state = st.text_input("State", "California")
-    city = st.text_input("City", "Los Angeles")
+    country = st.text_input("Country", "")  # No default value
+    state = st.text_input("State", "")      # No default value
+    city = st.text_input("City", "")        # No default value
 
     participants, requested_date, start_time, end_time = parse_schedule_request(user_request)
 
     if participants and requested_date and start_time and end_time:
-        timezone = get_timezone(country, state, city)
-        st.write(f"Meeting scheduled with {participants} on {requested_date} from {start_time} to {end_time} in {timezone} timezone.")
+        # Only fetch timezone if country, state, and city are provided
+        if country and state and city:
+            timezone = get_timezone(country, state, city)
+            st.write(f"Meeting scheduled with {participants} on {requested_date} from {start_time} to {end_time} in {timezone} timezone.")
+        else:
+            st.error("Please provide your location (country, state, and city).")
     else:
         st.error("Could not schedule the meeting. Please provide more details.")
