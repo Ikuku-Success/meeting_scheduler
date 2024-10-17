@@ -1,5 +1,8 @@
 streamlit
 transformers
+torch
+torchvision
+torchaudio
 geopy
 timezonefinder
 pytz
