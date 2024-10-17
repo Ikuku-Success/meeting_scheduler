@@ -37,7 +37,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-3. Open your browser and navigate to `http://localhost:8501` to access the app.
+3. Open your browser and navigate to `https://meetingscheduler-5jqkhx5rosikxns42bk5ah.streamlit.app/` to access the app.
 
 ## 📊 Usage
 
