@@ -122,7 +122,7 @@ def parse_schedule_request(request):
 # Streamlit user interface
 st.title("Meeting Scheduler Bot")
 
-st.text("Note: There are only 3 candidates' calendars available [Alice, Bob, Jane]. You are one of them and can schedule a meeting with either of the two or both:")
+st.text("Note: There are only 3 candidates' calendars available [Alice, Bob, Jane]. You are \none of them and can schedule a meeting with either of the two or both:")
 user_request = st.text_area("Describe your meeting request", height=150)
 
 # Initialize session state for location fields
